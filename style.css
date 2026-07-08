@@ -25,9 +25,9 @@ body {
 
 nav {
   background: var(--nav-bg);
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
   padding: 16px 40px;
   position: relative;
 }
@@ -52,7 +52,8 @@ nav {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  justify-content: center;
+  gap: 20px;
 }
 
 .nav-links a {
@@ -60,25 +61,30 @@ nav {
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 600;
-  transition: color 0.15s ease;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 8px 18px;
+  border-radius: 8px;
+  transition: background 0.15s ease;
 }
 
 .nav-links a:hover {
-  text-decoration: underline;
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .nav-links a.active {
+  background: rgba(255, 255, 255, 0.22);
   text-decoration: underline;
 }
 
 .dropdown {
   position: relative;
+  justify-self: end;
 }
 
 .dropdown-toggle {
   cursor: pointer;
   color: #ffffff;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   user-select: none;
   line-height: 1;
 }
