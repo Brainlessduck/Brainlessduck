@@ -25,14 +25,15 @@ body {
 
 nav {
   background: var(--nav-bg);
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  padding: 16px 40px;
   position: relative;
+  height: 72px;
 }
 
 .logo {
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -50,10 +51,16 @@ nav {
 }
 
 .nav-links {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 6px;
 }
 
 .nav-links a {
@@ -61,24 +68,24 @@ nav {
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 600;
-  background: rgba(255, 255, 255, 0.08);
-  padding: 8px 18px;
+  padding: 8px 20px;
   border-radius: 8px;
   transition: background 0.15s ease;
 }
 
 .nav-links a:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .nav-links a.active {
-  background: rgba(255, 255, 255, 0.22);
-  text-decoration: underline;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .dropdown {
-  position: relative;
-  justify-self: end;
+  position: fixed;
+  top: 22px;
+  right: 32px;
+  z-index: 20;
 }
 
 .dropdown-toggle {
