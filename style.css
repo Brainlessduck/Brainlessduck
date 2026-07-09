@@ -83,8 +83,12 @@ nav {
 
 .dropdown {
   position: fixed;
-  top: 22px;
-  right: 32px;
+  top: 0;
+  right: 0;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding-right: 40px;
   z-index: 20;
 }
 
