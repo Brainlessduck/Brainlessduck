@@ -176,3 +176,57 @@ ul {
   line-height: 1.8;
   padding-left: 20px;
 }
+
+/* ===== MOBILE ONLY – Desktop bleibt unverändert ===== */
+@media (max-width: 700px) {
+  nav {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 60px 14px 16px;
+  }
+
+  .logo {
+    position: static;
+    transform: none;
+    font-size: 1.2rem;
+    gap: 8px;
+  }
+
+  .logo-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .nav-links {
+    position: static;
+    transform: none;
+    gap: 2px;
+    padding: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  .dropdown {
+    height: auto;
+    top: 14px;
+    right: 0;
+    padding-right: 16px;
+  }
+
+  main {
+    padding: 40px 18px;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+}
+
