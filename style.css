@@ -29,6 +29,10 @@ html[data-theme="light"] {
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   background: var(--bg);
   color: var(--text);
