@@ -59,6 +59,8 @@ nav {
   letter-spacing: 1px;
   color: var(--nav-bg);
   -webkit-text-stroke: 2px var(--text);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 html[data-theme="light"] .logo {
