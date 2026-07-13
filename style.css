@@ -167,10 +167,10 @@ html[data-theme="light"] .nav-links a.active {
   right: 40px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 12px;
+  border-radius: 18px;
   padding: 10px;
   min-width: 180px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
   z-index: 30;
   display: none;
 }
@@ -201,21 +201,22 @@ html[data-theme="light"] .menu-dropdown a:hover {
 main {
   max-width: 780px;
   margin: 0 auto;
-  padding: 64px 24px;
+  padding: 72px 24px;
 }
 
 h1 {
   color: var(--accent);
-  margin-bottom: 18px;
-  font-size: 2.3rem;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
   font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
 p {
   color: var(--text-dim);
-  line-height: 1.7;
-  margin-bottom: 14px;
-  font-size: 1.02rem;
+  line-height: 1.75;
+  margin-bottom: 16px;
+  font-size: 1.04rem;
 }
 
 ul {
@@ -226,11 +227,12 @@ ul {
 
 /* ===== SOCIAL CARD (Home page) ===== */
 .social-card {
-  margin-top: 40px;
+  margin-top: 44px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 26px 28px;
+  border-radius: 20px;
+  padding: 30px 30px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
   transition: var(--transition);
 }
 
@@ -244,7 +246,7 @@ ul {
 .social-links {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 14px;
 }
 
 .social-links a {
@@ -253,13 +255,16 @@ ul {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  min-height: 100px;
   color: var(--link-blue);
   text-decoration: none;
   font-size: 0.85rem;
-  padding: 20px 12px;
-  border-radius: 12px;
+  padding: 20px 14px;
+  border-radius: 18px;
   background: rgba(255, 255, 255, 0.04);
-  transition: background 0.15s ease, transform 0.15s ease;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   text-align: center;
   word-break: break-word;
 }
@@ -270,12 +275,14 @@ html[data-theme="light"] .social-links a {
 
 .social-links a:hover {
   background: rgba(255, 255, 255, 0.09);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 html[data-theme="light"] .social-links a:hover {
-  background: rgba(0, 0, 0, 0.06);
-  transform: translateY(-2px);
+  background: rgba(0, 0, 0, 0.03);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .social-links .tag {
