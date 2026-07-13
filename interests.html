@@ -28,9 +28,7 @@
   </div>
   <div class="nav-controls">
     <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Hell-/Dunkelmodus">🌙</div>
-    <div class="menu-toggle" onclick="document.getElementById('site-menu').classList.toggle('show')">
-      <span class="lines">☰</span> Menü
-    </div>
+    <div class="menu-toggle" onclick="event.stopPropagation(); document.getElementById('site-menu').classList.toggle('show')" title="Menü" aria-label="Menü öffnen">☰</div>
   </div>
   <div class="menu-dropdown" id="site-menu">
     <a href="index.html">Home</a>
@@ -68,6 +66,14 @@ window.addEventListener('DOMContentLoaded', () => {
   const saved = localStorage.getItem('theme');
   if (saved === 'light') {
     document.getElementById('theme-toggle').textContent = '☀️';
+  }
+});
+
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('site-menu');
+  const toggle = document.querySelector('.menu-toggle');
+  if (menu.classList.contains('show') && !menu.contains(e.target) && e.target !== toggle) {
+    menu.classList.remove('show');
   }
 });
 </script>
