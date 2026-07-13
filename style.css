@@ -59,8 +59,14 @@ nav {
   letter-spacing: 1px;
   color: var(--nav-bg);
   -webkit-text-stroke: 2px var(--text);
-  text-decoration: none;
+  text-decoration: none !important;
   cursor: pointer;
+}
+
+.logo:hover,
+.logo:visited,
+.logo:active {
+  text-decoration: none !important;
 }
 
 html[data-theme="light"] .logo {
