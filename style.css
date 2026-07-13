@@ -385,4 +385,16 @@ html[data-theme="light"] .social-links a:hover {
   .social-card {
     padding: 20px;
   }
+
+  .social-links {
+    grid-template-columns: 1fr;
+  }
+
+  .social-links a {
+    flex-direction: row;
+    justify-content: flex-start;
+    min-height: auto;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+  }
 }
