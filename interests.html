@@ -25,17 +25,18 @@
     <a href="interests.html" class="active">Interests</a>
     <a href="index.html">Home</a>
     <a href="minecraft.html">Minecraft</a>
+  </div>
+  <div class="nav-controls">
+    <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Hell-/Dunkelmodus">🌙</div>
+    <div class="menu-toggle" onclick="document.getElementById('site-menu').classList.toggle('show')">
+      <span class="lines">☰</span> Menü
     </div>
-  <div class="dropdown">
-      <div class="dropdown-toggle" onclick="document.getElementById('social-menu').classList.toggle('show')">☰</div>
-      <div class="dropdown-menu" id="social-menu">
-        <h4>My Social Media Profiles</h4>
-        <ul>
-          <li><a href="https://www.twitch.tv/brainlessduck" target="_blank">https://www.twitch.tv/brainlessduck</a></li>
-          <li><a href="https://www.youtube.com/Brainlessduck" target="_blank">https://www.youtube.com/Brainlessduck</a></li>
-        </ul>
-      </div>
-    </div>
+  </div>
+  <div class="menu-dropdown" id="site-menu">
+    <a href="index.html">Home</a>
+    <a href="interests.html">Interests</a>
+    <a href="minecraft.html">Minecraft</a>
+  </div>
 </nav>
 
 <main>
@@ -49,5 +50,26 @@
   </ul>
 </main>
 
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? 'dark' : 'light');
+  localStorage.setItem('theme', isLight ? 'dark' : 'light');
+  document.getElementById('theme-toggle').textContent = isLight ? '🌙' : '☀️';
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.getElementById('theme-toggle').textContent = '☀️';
+  }
+});
+</script>
 </body>
 </html>
