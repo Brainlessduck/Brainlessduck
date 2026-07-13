@@ -259,6 +259,7 @@ ul {
   color: var(--link-blue);
   text-decoration: none;
   font-size: 0.85rem;
+  font-weight: 500;
   padding: 20px 14px;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.04);
@@ -267,6 +268,7 @@ ul {
   transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   text-align: center;
   word-break: break-word;
+  line-height: 1.4;
 }
 
 html[data-theme="light"] .social-links a {
@@ -293,6 +295,9 @@ html[data-theme="light"] .social-links a:hover {
   background: var(--accent);
   padding: 4px 12px;
   border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  min-width: 70px;
 }
 
 /* ===== MOBILE ONLY – Desktop bleibt unverändert ===== */
