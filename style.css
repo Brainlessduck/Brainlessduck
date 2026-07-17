@@ -333,6 +333,144 @@ html[data-theme="light"] .social-links a:hover {
   min-width: 70px;
 }
 
+/* ===== SCROLL FADE-IN ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== LOGO HOVER ===== */
+.logo-icon {
+  transition: transform 0.25s ease;
+}
+
+.logo:hover .logo-icon {
+  transform: scale(1.12) rotate(-6deg);
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: var(--nav-bg);
+  border-top: 1px solid var(--card-border);
+  padding: 40px 40px 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 24px;
+  transition: var(--transition);
+}
+
+.footer-col strong {
+  color: var(--accent);
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-col p {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-top: 6px;
+  max-width: 260px;
+}
+
+.footer-copy span {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 14px;
+}
+
+.footer-social a {
+  color: var(--text-dim);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+html[data-theme="light"] .footer-social a {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.footer-social a svg {
+  width: 18px;
+  height: 18px;
+}
+
+.footer-social a:hover {
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-4px);
+}
+
+html[data-theme="light"] .footer-social a:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* ===== DOCK (schwebende Taskbar) ===== */
+.dock {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  background: rgba(35, 35, 38, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: 22px;
+  padding: 10px 14px;
+  z-index: 40;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+html[data-theme="light"] .dock {
+  background: rgba(255, 253, 247, 0.8);
+}
+
+.dock-item {
+  width: 46px;
+  height: 46px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+  transition: transform 0.18s cubic-bezier(.34,1.56,.64,1), background 0.18s ease, color 0.18s ease;
+}
+
+html[data-theme="light"] .dock-item {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.dock-item svg {
+  width: 22px;
+  height: 22px;
+}
+
+.dock-item:hover {
+  transform: translateY(-10px) scale(1.14);
+  background: var(--accent);
+  color: #1a1a1a;
+}
+
 /* ===== MOBILE ONLY – Desktop bleibt unverändert ===== */
 @media (max-width: 700px) {
   nav {
@@ -408,5 +546,24 @@ html[data-theme="light"] .social-links a:hover {
     min-height: auto;
     padding: 14px 16px;
     font-size: 0.85rem;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 20px 110px;
+    gap: 18px;
+  }
+
+  .dock {
+    bottom: 12px;
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .dock-item {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
   }
 }
