@@ -48,6 +48,39 @@
   </ul>
 </main>
 
+<footer class="site-footer">
+  <div class="footer-col">
+    <strong>BRAINLESSDUCK</strong>
+    <p>Minecraft, Volleyball & Tech – meine kleine Ecke im Netz.</p>
+  </div>
+  <div class="footer-col footer-social">
+    <a href="https://www.twitch.tv/brainlessduck" target="_blank" title="Twitch">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v11l-4 4h-4l-3 3v-3H4V4z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@Brainlessduck" target="_blank" title="YouTube">
+      <svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="4" width="20" height="16" rx="4" opacity="0.15"/><path d="M10 8l6 4-6 4V8z"/></svg>
+    </a>
+    <a href="https://plancke.io/hypixel/player/stats/Brainlessduck#BedWars" target="_blank" title="Hypixel">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l6 6-6 14L6 8z"/></svg>
+    </a>
+  </div>
+  <div class="footer-col footer-copy">
+    <span>© 2026 Brainlessduck</span>
+  </div>
+</footer>
+
+<div class="dock">
+  <a href="https://www.twitch.tv/brainlessduck" target="_blank" class="dock-item" title="Twitch">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v11l-4 4h-4l-3 3v-3H4V4z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@Brainlessduck" target="_blank" class="dock-item" title="YouTube">
+    <svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="4" width="20" height="16" rx="4" opacity="0.15"/><path d="M10 8l6 4-6 4V8z"/></svg>
+  </a>
+  <a href="https://plancke.io/hypixel/player/stats/Brainlessduck#BedWars" target="_blank" class="dock-item" title="Hypixel">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l6 6-6 14L6 8z"/></svg>
+  </a>
+</div>
+
 <script>
 function toggleTheme() {
   const html = document.documentElement;
@@ -76,6 +109,23 @@ document.addEventListener('click', (e) => {
     menu.classList.remove('show');
   }
 });
+
+(function() {
+  const targets = document.querySelectorAll('main > *, main li, .footer-col');
+  targets.forEach((el, i) => {
+    el.classList.add('fade-in');
+    el.style.transitionDelay = (i * 70) + 'ms';
+  });
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  targets.forEach(el => obs.observe(el));
+})();
 </script>
 </body>
 </html>
