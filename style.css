@@ -293,13 +293,6 @@ h1 {
   letter-spacing: -0.5px;
 }
 
-h1.framed {
-  display: inline-block;
-  padding: 0px 2px;
-  border: 1.5px solid #b8860b;
-  border-radius: 4px;
-}
-
 p {
   color: var(--text-dim);
   line-height: 1.75;
@@ -423,13 +416,9 @@ html[data-theme="light"] .social-links a:hover {
 }
 
 .footer-col strong {
-  display: inline-block;
   color: var(--accent);
   font-size: 1.05rem;
   letter-spacing: 0.5px;
-  padding: 0px 2px;
-  border: 1px solid #b8860b;
-  border-radius: 3px;
 }
 
 .footer-col p {
