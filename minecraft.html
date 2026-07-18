@@ -25,7 +25,7 @@
     <a href="interests.html">Interests</a>
     <a href="index.html">Home</a>
     <div class="nav-item">
-      <a href="minecraft.html" class="active">Minecraft</a>
+      <a href="minecraft.html" class="active">Minecraft <span class="nav-caret">▾</span></a>
       <div class="nav-dropdown">
         <a href="minecraft.html#modpacks">Modpacks</a>
       </div>
@@ -48,52 +48,47 @@
   <div class="social-card" id="modpacks">
     <h2>Modpacks</h2>
     <div class="modpack-grid">
-      <div class="modpack-item">
+      <div class="modpack-item" onclick="openModpackModal('Collectionist')">
         <strong>Collectionist</strong>
         <span class="modpack-author">von d1lI</span>
       </div>
-      <div class="modpack-item">
-        <span class="modpack-version">V6.5.1</span>
+      <div class="modpack-item" onclick="openModpackModal('Linggango')">
         <strong>Linggango</strong>
         <span class="modpack-author">von Misanthropy</span>
       </div>
-      <div class="modpack-item">
-        <span class="modpack-version">4.0.9</span>
+      <div class="modpack-item" onclick="openModpackModal('Society Sunlit Valley')">
         <strong>Society Sunlit Valley</strong>
         <span class="modpack-author">von Chakyl</span>
       </div>
-      <div class="modpack-item">
+      <div class="modpack-item" onclick="openModpackModal('Lees Fantasy - Chronicles')">
         <strong>Lees Fantasy - Chronicles</strong>
         <span class="modpack-author">von adriiann_lee</span>
       </div>
-      <div class="modpack-item">
+      <div class="modpack-item" onclick="openModpackModal('OverHaul')">
         <strong>OverHaul</strong>
         <span class="modpack-author">von justjosh99</span>
       </div>
-      <div class="modpack-item">
-        <span class="modpack-version">0.1.5</span>
+      <div class="modpack-item" onclick="openModpackModal('Echoes of Nostalgia')">
         <strong>Echoes of Nostalgia</strong>
         <span class="modpack-author">von nostalgiam</span>
       </div>
-      <div class="modpack-item">
-        <span class="modpack-version">V1.7.9.6</span>
+      <div class="modpack-item" onclick="openModpackModal('SUPERIOR - RPG')">
         <strong>SUPERIOR - RPG</strong>
         <span class="modpack-author">von Chummycho</span>
       </div>
-      <div class="modpack-item">
+      <div class="modpack-item" onclick="openModpackModal('Stardew Dino Valley')">
         <strong>Stardew Dino Valley</strong>
         <span class="modpack-author">von Zfyant</span>
       </div>
-      <div class="modpack-item">
+      <div class="modpack-item" onclick="openModpackModal('World Terra')">
         <strong>World Terra</strong>
         <span class="modpack-author">von Crisper</span>
       </div>
-      <div class="modpack-item">
-        <span class="modpack-version">1.7.0</span>
+      <div class="modpack-item" onclick="openModpackModal('The Chocolate Edition')">
         <strong>The Chocolate Edition</strong>
         <span class="modpack-author">von richestprune</span>
       </div>
-      <div class="modpack-item">
+      <div class="modpack-item" onclick="openModpackModal('All the Mods 10 - ATM10')">
         <strong>All the Mods 10 - ATM10</strong>
         <span class="modpack-author">Top-Pack 2026</span>
       </div>
@@ -108,6 +103,14 @@
   </div>
 </main>
 
+<div class="modal-overlay" id="modpack-modal" onclick="if(event.target===this) closeModpackModal()">
+  <div class="modal-box">
+    <h3 id="modpack-modal-title"></h3>
+    <p>Text</p>
+    <button class="modal-close" onclick="closeModpackModal()">Schließen</button>
+  </div>
+</div>
+
 <footer class="site-footer">
   <div class="footer-col">
     <strong>BRAINLESSDUCK</strong>
@@ -118,7 +121,7 @@
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v11l-4 4h-4l-3 3v-3H4V4z"/></svg>
     </a>
     <a href="https://www.youtube.com/@Brainlessduck" target="_blank" title="YouTube">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 8l6 4-6 4V8z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M2 7a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V7z M10 8.5v7l6-3.5-6-3.5z"/></svg>
     </a>
     <a href="https://plancke.io/hypixel/player/stats/Brainlessduck#BedWars" target="_blank" title="Hypixel">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l6 6-6 14L6 8z"/></svg>
@@ -158,6 +161,14 @@ document.addEventListener('click', (e) => {
     menu.classList.remove('show');
   }
 });
+
+function openModpackModal(name) {
+  document.getElementById('modpack-modal-title').textContent = name;
+  document.getElementById('modpack-modal').classList.add('show');
+}
+function closeModpackModal() {
+  document.getElementById('modpack-modal').classList.remove('show');
+}
 
 (function() {
   const targets = document.querySelectorAll('main > *, main li, .footer-col');
