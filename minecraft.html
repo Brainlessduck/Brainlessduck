@@ -106,7 +106,7 @@
 <div class="modal-overlay" id="modpack-modal" onclick="if(event.target===this) closeModpackModal()">
   <div class="modal-box">
     <h3 id="modpack-modal-title"></h3>
-    <p>Text</p>
+    <p id="modpack-modal-text">Text</p>
     <button class="modal-close" onclick="closeModpackModal()">Schließen</button>
   </div>
 </div>
@@ -162,8 +162,12 @@ document.addEventListener('click', (e) => {
   }
 });
 
+const modpackDescriptions = {
+  'Collectionist': 'Dieses Modpack ist mein aktuelles Lieblingsmodpack. In diesem Modpack geht es darum, dass man durch die Welt geht und Items sammelt. Man hat auch ein Teleskop, mit dem man z. B. Blumen scannen kann. Im Questbook gibt es außerdem einen Teil, in dem es nur ums Fischen geht – es gibt mehrere Fisch-Mods.'
+};
 function openModpackModal(name) {
   document.getElementById('modpack-modal-title').textContent = name;
+  document.getElementById('modpack-modal-text').textContent = modpackDescriptions[name] || 'Text';
   document.getElementById('modpack-modal').classList.add('show');
 }
 function closeModpackModal() {
