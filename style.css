@@ -144,9 +144,11 @@ html[data-theme="light"] .nav-links a.active {
 }
 
 .nav-caret {
-  display: inline-block;
-  margin-left: 5px;
-  font-size: 0.65em;
+  display: inline-flex;
+  margin-left: 6px;
+  width: 13px;
+  height: 13px;
+  vertical-align: middle;
   transition: transform 0.18s ease;
 }
 
