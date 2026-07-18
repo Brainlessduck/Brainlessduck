@@ -24,7 +24,12 @@
   <div class="nav-links">
     <a href="interests.html">Interests</a>
     <a href="index.html" class="active">Home</a>
-    <a href="minecraft.html">Minecraft</a>
+    <div class="nav-item">
+      <a href="minecraft.html">Minecraft</a>
+      <div class="nav-dropdown">
+        <a href="minecraft.html#modpacks">Modpacks</a>
+      </div>
+    </div>
   </div>
   <div class="nav-controls">
     <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Hell-/Dunkelmodus">🌙</div>
@@ -69,20 +74,22 @@
     </a>
   </div>
   <div class="footer-col footer-copy">
-    <span>© 2026 Brainlessduck</span>
+    <span><span style="display:inline-block;transform:scaleX(-1);">©</span> 2026 Brainlessduck</span>
   </div>
 </footer>
 
-<div class="dock">
-  <a href="https://www.twitch.tv/brainlessduck" target="_blank" class="dock-item" title="Twitch">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v11l-4 4h-4l-3 3v-3H4V4z"/></svg>
-  </a>
-  <a href="https://www.youtube.com/@Brainlessduck" target="_blank" class="dock-item" title="YouTube">
-    <svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="4" width="20" height="16" rx="4" opacity="0.15"/><path d="M10 8l6 4-6 4V8z"/></svg>
-  </a>
-  <a href="https://plancke.io/hypixel/player/stats/Brainlessduck#BedWars" target="_blank" class="dock-item" title="Hypixel">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l6 6-6 14L6 8z"/></svg>
-  </a>
+<div class="dock-wrapper">
+  <div class="dock">
+    <a href="https://www.twitch.tv/brainlessduck" target="_blank" class="dock-item" title="Twitch">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v11l-4 4h-4l-3 3v-3H4V4z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@Brainlessduck" target="_blank" class="dock-item" title="YouTube">
+      <svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="4" width="20" height="16" rx="4" opacity="0.15"/><path d="M10 8l6 4-6 4V8z"/></svg>
+    </a>
+    <a href="https://plancke.io/hypixel/player/stats/Brainlessduck#BedWars" target="_blank" class="dock-item" title="Hypixel">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l6 6-6 14L6 8z"/></svg>
+    </a>
+  </div>
 </div>
 
 <script>
