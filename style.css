@@ -460,6 +460,13 @@ html[data-theme="light"] .social-links a:hover {
   text-align: left;
 }
 
+.discord-text {
+  display: block;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  margin-top: 6px;
+}
+
 .footer-copy {
   text-align: right;
   justify-self: end;
