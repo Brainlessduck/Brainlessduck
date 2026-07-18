@@ -659,6 +659,15 @@ html[data-theme="light"] .modpack-item {
   line-height: 1.5;
 }
 
+.modal-discord {
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.modal-discord a {
+  color: var(--link-blue);
+}
+
 .modal-close {
   margin-top: 18px;
   display: inline-block;
