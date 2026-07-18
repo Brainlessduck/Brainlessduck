@@ -544,6 +544,31 @@ html[data-theme="light"] .footer-social a:hover {
 }
 
 /* ===== MODPACKS ===== */
+.modpack-subheading {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-dim);
+  font-weight: 700;
+  margin: 22px 0 10px;
+}
+
+.modpack-subheading:first-of-type {
+  margin-top: 0;
+}
+
+.social-card.compact {
+  padding: 16px 22px;
+  box-shadow: none;
+}
+
+.social-card.compact h2 {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
 .modpack-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
