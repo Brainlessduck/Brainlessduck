@@ -24,7 +24,12 @@
   <div class="nav-links">
     <a href="interests.html">Interests</a>
     <a href="index.html">Home</a>
-    <a href="minecraft.html" class="active">Minecraft</a>
+    <div class="nav-item">
+      <a href="minecraft.html" class="active">Minecraft</a>
+      <div class="nav-dropdown">
+        <a href="minecraft.html#modpacks">Modpacks</a>
+      </div>
+    </div>
   </div>
   <div class="nav-controls">
     <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Hell-/Dunkelmodus">🌙</div>
@@ -39,8 +44,61 @@
 
 <main>
   <h1>Minecraft</h1>
-  <p>Hier ein paar Infos zu meinem Minecraft-Projekt: Server, Modpacks und Farmen.</p>
-  <p>(Platzhalter – wird noch mit Details gefüllt.)</p>
+
+  <div class="social-card" id="modpacks">
+    <h2>Modpacks</h2>
+    <div class="modpack-grid">
+      <div class="modpack-item">
+        <strong>Collectionist</strong>
+        <span class="modpack-author">von d1lI</span>
+      </div>
+      <div class="modpack-item">
+        <span class="modpack-version">V6.5.1</span>
+        <strong>Linggango</strong>
+        <span class="modpack-author">von Misanthropy</span>
+      </div>
+      <div class="modpack-item">
+        <span class="modpack-version">4.0.9</span>
+        <strong>Society Sunlit Valley</strong>
+        <span class="modpack-author">von Chakyl</span>
+      </div>
+      <div class="modpack-item">
+        <strong>Lees Fantasy - Chronicles</strong>
+        <span class="modpack-author">von adriiann_lee</span>
+      </div>
+      <div class="modpack-item">
+        <strong>OverHaul</strong>
+        <span class="modpack-author">von justjosh99</span>
+      </div>
+      <div class="modpack-item">
+        <span class="modpack-version">0.1.5</span>
+        <strong>Echoes of Nostalgia</strong>
+        <span class="modpack-author">von nostalgiam</span>
+      </div>
+      <div class="modpack-item">
+        <span class="modpack-version">V1.7.9.6</span>
+        <strong>SUPERIOR - RPG</strong>
+        <span class="modpack-author">von Chummycho</span>
+      </div>
+      <div class="modpack-item">
+        <strong>Stardew Dino Valley</strong>
+        <span class="modpack-author">von Zfyant</span>
+      </div>
+      <div class="modpack-item">
+        <strong>World Terra</strong>
+        <span class="modpack-author">von Crisper</span>
+      </div>
+      <div class="modpack-item">
+        <span class="modpack-version">1.7.0</span>
+        <strong>The Chocolate Edition</strong>
+        <span class="modpack-author">von richestprune</span>
+      </div>
+      <div class="modpack-item">
+        <strong>All the Mods 10 - ATM10</strong>
+        <span class="modpack-author">Top-Pack 2026</span>
+      </div>
+    </div>
+  </div>
 
   <div class="social-card">
     <h2>Hypixel Stats</h2>
@@ -67,20 +125,22 @@
     </a>
   </div>
   <div class="footer-col footer-copy">
-    <span>© 2026 Brainlessduck</span>
+    <span><span style="display:inline-block;transform:scaleX(-1);">©</span> 2026 Brainlessduck</span>
   </div>
 </footer>
 
-<div class="dock">
-  <a href="https://www.twitch.tv/brainlessduck" target="_blank" class="dock-item" title="Twitch">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v11l-4 4h-4l-3 3v-3H4V4z"/></svg>
-  </a>
-  <a href="https://www.youtube.com/@Brainlessduck" target="_blank" class="dock-item" title="YouTube">
-    <svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="4" width="20" height="16" rx="4" opacity="0.15"/><path d="M10 8l6 4-6 4V8z"/></svg>
-  </a>
-  <a href="https://plancke.io/hypixel/player/stats/Brainlessduck#BedWars" target="_blank" class="dock-item" title="Hypixel">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l6 6-6 14L6 8z"/></svg>
-  </a>
+<div class="dock-wrapper">
+  <div class="dock">
+    <a href="https://www.twitch.tv/brainlessduck" target="_blank" class="dock-item" title="Twitch">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v11l-4 4h-4l-3 3v-3H4V4z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@Brainlessduck" target="_blank" class="dock-item" title="YouTube">
+      <svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="4" width="20" height="16" rx="4" opacity="0.15"/><path d="M10 8l6 4-6 4V8z"/></svg>
+    </a>
+    <a href="https://plancke.io/hypixel/player/stats/Brainlessduck#BedWars" target="_blank" class="dock-item" title="Hypixel">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l6 6-6 14L6 8z"/></svg>
+    </a>
+  </div>
 </div>
 
 <script>
