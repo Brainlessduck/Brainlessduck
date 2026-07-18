@@ -96,7 +96,11 @@
       </div>
       <div class="modpack-item" onclick="openModpackModal('All the Mods 10 - ATM10')">
         <strong>All the Mods 10 - ATM10</strong>
-        <span class="modpack-author">Top-Pack 2026</span>
+        <span class="modpack-author">von ATMTeam</span>
+      </div>
+      <div class="modpack-item" onclick="openModpackModal('All the Mods 11 - ATM11')">
+        <strong>All the Mods 11 - ATM11</strong>
+        <span class="modpack-author">von ATMTeam</span>
       </div>
     </div>
   </div>
@@ -180,7 +184,7 @@ function openModpackModal(name) {
   document.getElementById('modpack-modal-text').textContent = modpackDescriptions[name] || 'Text';
   const discordEl = document.getElementById('modpack-modal-discord');
   if (modpackDiscords[name]) {
-    discordEl.innerHTML = 'Discord: <a href="' + modpackDiscords[name] + '" target="_blank">' + modpackDiscords[name] + '</a>';
+    discordEl.innerHTML = name + ' Discord: <a href="' + modpackDiscords[name] + '" target="_blank">' + modpackDiscords[name] + '</a>';
     discordEl.style.display = 'block';
   } else {
     discordEl.style.display = 'none';
