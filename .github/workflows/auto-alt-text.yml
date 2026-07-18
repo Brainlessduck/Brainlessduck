@@ -1,0 +1,34 @@
+name: Auto Alt-Text für Bilder
+
+on:
+  push:
+    paths:
+      - '**/*.md'
+      - '**/*.html'
+
+jobs:
+  add-alt-text:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install anthropic beautifulsoup4 requests
+
+      - name: Generate missing alt-texts
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python .github/scripts/generate_alt_text.py
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Alt-Text Bot"
+          git add -A
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto: Alt-Texte ergänzt"
+          git push
