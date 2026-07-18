@@ -113,6 +113,7 @@
   <div class="modal-box">
     <h3 id="modpack-modal-title"></h3>
     <p id="modpack-modal-text">Text</p>
+    <p id="modpack-modal-discord" class="modal-discord"></p>
     <button class="modal-close" onclick="closeModpackModal()">Schließen</button>
   </div>
 </div>
@@ -171,9 +172,19 @@ document.addEventListener('click', (e) => {
 const modpackDescriptions = {
   'Collectionist': 'Dieses Modpack ist mein aktuelles Lieblingsmodpack. In diesem Modpack geht es darum, dass man durch die Welt geht und Items sammelt. Man hat auch ein Teleskop, mit dem man z. B. Blumen scannen kann. Im Questbook gibt es außerdem einen Teil, in dem es nur ums Fischen geht – es gibt mehrere Fisch-Mods.'
 };
+const modpackDiscords = {
+  'Collectionist': 'https://discord.gg/qUdm4PK6ng'
+};
 function openModpackModal(name) {
   document.getElementById('modpack-modal-title').textContent = name;
   document.getElementById('modpack-modal-text').textContent = modpackDescriptions[name] || 'Text';
+  const discordEl = document.getElementById('modpack-modal-discord');
+  if (modpackDiscords[name]) {
+    discordEl.innerHTML = 'Discord: <a href="' + modpackDiscords[name] + '" target="_blank">' + modpackDiscords[name] + '</a>';
+    discordEl.style.display = 'block';
+  } else {
+    discordEl.style.display = 'none';
+  }
   document.getElementById('modpack-modal').classList.add('show');
 }
 function closeModpackModal() {
