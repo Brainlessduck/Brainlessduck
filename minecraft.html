@@ -130,7 +130,6 @@
 <footer class="site-footer">
   <div class="footer-col">
     <strong>BRAINLESSDUCK</strong>
-    <p>Minecraft, Volleyball & Tech – meine kleine Ecke im Netz.</p>
     <span class="discord-text">Discord: brainlessduck</span>
   </div>
   <div class="footer-col footer-social">
@@ -180,17 +179,22 @@ document.addEventListener('click', (e) => {
 });
 
 const modpackDescriptions = {
-  'Collectionist': 'Dieses Modpack ist mein aktuelles Lieblingsmodpack. In diesem Modpack geht es darum, dass man durch die Welt geht und Items sammelt. Man hat auch ein Teleskop, mit dem man z. B. Blumen scannen kann. Im Questbook gibt es außerdem einen Teil, in dem es nur ums Fischen geht – es gibt mehrere Fisch-Mods.'
+  'Collectionist': 'Dieses Modpack ist mein aktuelles Lieblingsmodpack. In diesem Modpack geht es darum, dass man durch die Welt geht und Items sammelt. Man hat auch ein Teleskop, mit dem man z. B. Blumen scannen kann. Im Questbook gibt es außerdem einen Teil, in dem es nur ums Fischen geht – es gibt mehrere Fisch-Mods.',
+  'Society Sunlit Valley': 'Dieses Modpack ist ein sehr entspanntes und ruhiges Modpack. In diesem Modpack geht es hauptsächlich darum, Pflanzen anzubauen und zu bauen. Außerdem gibt es ein Geldsystem, mit dem man verschiedene Dinge kaufen und verkaufen kann. Insgesamt macht das Modpack sehr viel Spaß und eignet sich perfekt für alle, die ein ruhiges Spielerlebnis mögen.'
 };
 const modpackDiscords = {
-  'Collectionist': 'https://discord.gg/qUdm4PK6ng'
+  'Collectionist': 'https://discord.gg/qUdm4PK6ng',
+  'Society Sunlit Valley': 'https://discord.com/invite/GdcZkrZqkj'
+};
+const modpackDiscordLabels = {
+  'Society Sunlit Valley': 'SSV'
 };
 function openModpackModal(name) {
   document.getElementById('modpack-modal-title').textContent = name;
   document.getElementById('modpack-modal-text').textContent = modpackDescriptions[name] || 'Text';
   const discordEl = document.getElementById('modpack-modal-discord');
   if (modpackDiscords[name]) {
-    discordEl.innerHTML = name + ' Discord: <a href="' + modpackDiscords[name] + '" target="_blank">' + modpackDiscords[name] + '</a>';
+    discordEl.innerHTML = (modpackDiscordLabels[name] || name) + ' Discord: <a href="' + modpackDiscords[name] + '" target="_blank">' + modpackDiscords[name] + '</a>';
     discordEl.style.display = 'block';
   } else {
     discordEl.style.display = 'none';
