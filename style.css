@@ -583,6 +583,9 @@ html[data-theme="light"] .footer-social a:hover {
 }
 
 .modpack-item {
+  font: inherit;
+  text-align: left;
+  width: 100%;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--card-border);
   border-radius: 16px;
@@ -790,4 +793,13 @@ html[data-theme="light"] .modpack-item {
     text-align: left;
     justify-self: unset;
   }
+}
+
+/* ===== FOKUS-SICHTBARKEIT (Tastaturbedienung) ===== */
+.modpack-item:focus-visible,
+.modal-close:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
