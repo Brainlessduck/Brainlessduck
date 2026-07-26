@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Minecraft - Brainlessduck</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -55,58 +56,58 @@
 
     <h3 class="modpack-subheading">Favoriten</h3>
     <div class="modpack-grid">
-      <div class="modpack-item" onclick="openModpackModal('Collectionist')">
+      <button type="button" class="modpack-item" onclick="openModpackModal('Collectionist')">
         <strong>Collectionist</strong>
         <span class="modpack-author">von d1lI</span>
-      </div>
-      <div class="modpack-item" onclick="openModpackModal('Society Sunlit Valley')">
+      </button>
+      <button type="button" class="modpack-item" onclick="openModpackModal('Society Sunlit Valley')">
         <strong>Society Sunlit Valley</strong>
         <span class="modpack-author">von Chakyl</span>
-      </div>
-      <div class="modpack-item" onclick="openModpackModal('SUPERIOR - RPG')">
+      </button>
+      <button type="button" class="modpack-item" onclick="openModpackModal('SUPERIOR - RPG')">
         <strong>SUPERIOR - RPG</strong>
         <span class="modpack-author">von Chummycho</span>
-      </div>
-      <div class="modpack-item" onclick="openModpackModal('Linggango')">
+      </button>
+      <button type="button" class="modpack-item" onclick="openModpackModal('Linggango')">
         <strong>Linggango</strong>
         <span class="modpack-author">von Misanthropy</span>
-      </div>
+      </button>
     </div>
 
     <h3 class="modpack-subheading">Weitere Empfehlungen</h3>
     <div class="modpack-grid">
-      <div class="modpack-item" onclick="openModpackModal('Lees Fantasy - Chronicles')">
+      <button type="button" class="modpack-item" onclick="openModpackModal('Lees Fantasy - Chronicles')">
         <strong>Lees Fantasy - Chronicles</strong>
         <span class="modpack-author">von adriiann_lee</span>
-      </div>
-      <div class="modpack-item" onclick="openModpackModal('OverHaul')">
+      </button>
+      <button type="button" class="modpack-item" onclick="openModpackModal('OverHaul')">
         <strong>OverHaul</strong>
         <span class="modpack-author">von justjosh99</span>
-      </div>
-      <div class="modpack-item" onclick="openModpackModal('Echoes of Nostalgia')">
+      </button>
+      <button type="button" class="modpack-item" onclick="openModpackModal('Echoes of Nostalgia')">
         <strong>Echoes of Nostalgia</strong>
         <span class="modpack-author">von nostalgiam</span>
-      </div>
-      <div class="modpack-item" onclick="openModpackModal('Stardew Dino Valley')">
+      </button>
+      <button type="button" class="modpack-item" onclick="openModpackModal('Stardew Dino Valley')">
         <strong>Stardew Dino Valley</strong>
         <span class="modpack-author">von Zfyant</span>
-      </div>
-      <div class="modpack-item" onclick="openModpackModal('World Terra')">
+      </button>
+      <button type="button" class="modpack-item" onclick="openModpackModal('World Terra')">
         <strong>World Terra</strong>
         <span class="modpack-author">von Crisper</span>
-      </div>
-      <div class="modpack-item" onclick="openModpackModal('The Chocolate Edition')">
+      </button>
+      <button type="button" class="modpack-item" onclick="openModpackModal('The Chocolate Edition')">
         <strong>The Chocolate Edition</strong>
         <span class="modpack-author">von richestprune</span>
-      </div>
-      <div class="modpack-item" onclick="openModpackModal('All the Mods 10 - ATM10')">
+      </button>
+      <button type="button" class="modpack-item" onclick="openModpackModal('All the Mods 10 - ATM10')">
         <strong>All the Mods 10 - ATM10</strong>
         <span class="modpack-author">von ATMTeam</span>
-      </div>
-      <div class="modpack-item" onclick="openModpackModal('All the Mods 11 - ATM11')">
+      </button>
+      <button type="button" class="modpack-item" onclick="openModpackModal('All the Mods 11 - ATM11')">
         <strong>All the Mods 11 - ATM11</strong>
         <span class="modpack-author">von ATMTeam</span>
-      </div>
+      </button>
     </div>
   </div>
 
@@ -118,7 +119,7 @@
   </div>
 </main>
 
-<div class="modal-overlay" id="modpack-modal" onclick="if(event.target===this) closeModpackModal()">
+<div class="modal-overlay" id="modpack-modal" role="dialog" aria-modal="true" aria-labelledby="modpack-modal-title" onclick="if(event.target===this) closeModpackModal()">
   <div class="modal-box">
     <h3 id="modpack-modal-title"></h3>
     <p id="modpack-modal-text">Text</p>
@@ -199,11 +200,20 @@ function openModpackModal(name) {
   } else {
     discordEl.style.display = 'none';
   }
+  lastModpackTrigger = document.activeElement;
   document.getElementById('modpack-modal').classList.add('show');
+  document.querySelector('#modpack-modal .modal-close').focus();
 }
+let lastModpackTrigger = null;
 function closeModpackModal() {
   document.getElementById('modpack-modal').classList.remove('show');
+  if (lastModpackTrigger) { lastModpackTrigger.focus(); lastModpackTrigger = null; }
 }
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && document.getElementById('modpack-modal').classList.contains('show')) {
+    closeModpackModal();
+  }
+});
 
 (function() {
   const targets = document.querySelectorAll('main > *, main li, .footer-col');
