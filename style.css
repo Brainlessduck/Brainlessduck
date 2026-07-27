@@ -169,8 +169,26 @@ html[data-theme="light"] .nav-links a.active {
   opacity: 0;
   visibility: hidden;
   transform: translate(-50%, 6px);
-  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  transition: opacity 0.15s ease 0.15s, transform 0.15s ease 0.15s, visibility 0.15s 0.15s;
   z-index: 25;
+}
+
+/* Unsichtbare Bruecke unterhalb des Links: haelt den Hover, waehrend die
+   Maus nach unten ins Dropdown wandert. Liegt nicht ueber dem Link selbst,
+   damit Klicks auf den Nav-Link weiter ankommen. */
+.nav-item::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: -14px;
+  right: -14px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.nav-item:hover::after,
+.nav-item:focus-within::after {
+  pointer-events: auto;
 }
 
 .nav-item:hover .nav-dropdown,
@@ -178,6 +196,7 @@ html[data-theme="light"] .nav-links a.active {
   opacity: 1;
   visibility: visible;
   transform: translate(-50%, 0);
+  transition-delay: 0s;
 }
 
 .nav-dropdown a {
@@ -804,7 +823,7 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
-/* ===== INTERAKTIVER HINTERGRUND (Partikelnetz) ===== */
+/* ===== INTERAKTIVER HINTERGRUND (elastisches Raster) ===== */
 #bg-canvas {
   position: fixed;
   inset: 0;
@@ -815,9 +834,14 @@ button:focus-visible {
   display: block;
 }
 
-body > nav,
 body > main,
 body > footer {
   position: relative;
   z-index: 1;
+}
+
+/* Nav ueber dem Inhalt, sonst verdeckt main die Dropdowns */
+body > nav {
+  position: relative;
+  z-index: 10;
 }
