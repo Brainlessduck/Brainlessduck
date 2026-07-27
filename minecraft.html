@@ -11,7 +11,22 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#000000">
+<meta name="description" content="Meine Minecraft-Modpack-Empfehlungen: Collectionist, Society Sunlit Valley und weitere Packs mit Beschreibung und Discord-Links.">
+<meta name="author" content="Brainlessduck">
+<link rel="canonical" href="https://brainlessduck.github.io/Brainlessduck/minecraft.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brainlessduck">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Minecraft – Brainlessduck">
+<meta property="og:description" content="Meine Minecraft-Modpack-Empfehlungen: Collectionist, Society Sunlit Valley und weitere Packs mit Beschreibung und Discord-Links.">
+<meta property="og:url" content="https://brainlessduck.github.io/Brainlessduck/minecraft.html">
+<meta property="og:image" content="https://brainlessduck.github.io/Brainlessduck/android-chrome-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Minecraft – Brainlessduck">
+<meta name="twitter:description" content="Meine Minecraft-Modpack-Empfehlungen: Collectionist, Society Sunlit Valley und weitere Packs mit Beschreibung und Discord-Links.">
+<meta name="twitter:image" content="https://brainlessduck.github.io/Brainlessduck/android-chrome-512.png">
 <link rel="stylesheet" href="style.css?v=2">
+<script>if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light');</script>
 </head>
 <body>
 <canvas id="bg-canvas" aria-hidden="true"></canvas>
@@ -150,35 +165,7 @@
   </div>
 </footer>
 
-
 <script>
-function toggleTheme() {
-  const html = document.documentElement;
-  const isLight = html.getAttribute('data-theme') === 'light';
-  html.setAttribute('data-theme', isLight ? 'dark' : 'light');
-  localStorage.setItem('theme', isLight ? 'dark' : 'light');
-  document.getElementById('theme-toggle').textContent = isLight ? '🌙' : '☀️';
-}
-(function() {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'light') {
-    document.documentElement.setAttribute('data-theme', 'light');
-  }
-})();
-window.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'light') {
-    document.getElementById('theme-toggle').textContent = '☀️';
-  }
-});
-
-document.addEventListener('click', (e) => {
-  const menu = document.getElementById('site-menu');
-  const toggle = document.querySelector('.menu-toggle');
-  if (menu.classList.contains('show') && !menu.contains(e.target) && e.target !== toggle) {
-    menu.classList.remove('show');
-  }
-});
 
 const modpackDescriptions = {
   'Collectionist': 'Dieses Modpack ist mein aktuelles Lieblingsmodpack. In diesem Modpack geht es darum, dass man durch die Welt geht und Items sammelt. Man hat auch ein Teleskop, mit dem man z. B. Blumen scannen kann. Im Questbook gibt es außerdem einen Teil, in dem es nur ums Fischen geht – es gibt mehrere Fisch-Mods.',
@@ -216,23 +203,8 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-(function() {
-  const targets = document.querySelectorAll('main > *, main li, .footer-col');
-  targets.forEach((el, i) => {
-    el.classList.add('fade-in');
-    el.style.transitionDelay = (i * 70) + 'ms';
-  });
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  targets.forEach(el => obs.observe(el));
-})();
 </script>
+<script src="main.js?v=1"></script>
 <script data-goatcounter="https://brainlessduck.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 <script src="background.js?v=6"></script>
