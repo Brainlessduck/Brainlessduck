@@ -47,3 +47,31 @@ document.addEventListener('click', (e) => {
   }, { threshold: 0.12 });
   targets.forEach(el => obs.observe(el));
 })();
+
+/* Touch-Geraete haben kein Hover: erster Tap oeffnet das Dropdown,
+   zweiter Tap folgt dem Link. */
+(function () {
+  if (!window.matchMedia('(hover: none)').matches) return;
+
+  const items = document.querySelectorAll('.nav-item');
+  items.forEach((item) => {
+    const link = item.querySelector('a');
+    const drop = item.querySelector('.nav-dropdown');
+    if (!link || !drop) return;
+    link.addEventListener('click', (e) => {
+      if (!item.classList.contains('open')) {
+        e.preventDefault();
+        items.forEach(o => { if (o !== item) o.classList.remove('open'); });
+        item.classList.add('open');
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    items.forEach((item) => {
+      if (item.classList.contains('open') && !item.contains(e.target)) {
+        item.classList.remove('open');
+      }
+    });
+  });
+})();
