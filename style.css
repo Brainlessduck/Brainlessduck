@@ -1199,3 +1199,24 @@ html[data-theme="light"] .lang-toggle:hover {
     padding: 6px 8px;
   }
 }
+
+/* Flaggen im Sprachumschalter */
+.lang-toggle .flag {
+  width: 22px;
+  height: auto;
+  border-radius: 3px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.lang-toggle .flag-en {
+  display: none;
+}
+
+html[lang="en"] .lang-toggle .flag-de {
+  display: none;
+}
+
+html[lang="en"] .lang-toggle .flag-en {
+  display: block;
+}
