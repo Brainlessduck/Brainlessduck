@@ -39,13 +39,7 @@
     BRAINLESSDUCK
   </a>
   <div class="nav-links">
-    <div class="nav-item">
-      <a href="interests.html">Volleyball <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
-      <div class="nav-dropdown">
-        <a href="https://brainlessduck.github.io/laeufer-trainer/" target="_blank">Läufer Trainer</a>
-        <a href="punktezaehler.html">Punktezähler</a>
-      </div>
-    </div>
+    <a href="interests.html">Volleyball</a>
     <a href="index.html">Home</a>
     <div class="nav-item">
       <a href="minecraft.html">Minecraft <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></a>
@@ -61,8 +55,6 @@
   <div class="menu-dropdown" id="site-menu">
     <a href="index.html">Home</a>
     <a href="interests.html">Volleyball</a>
-    <a href="https://brainlessduck.github.io/laeufer-trainer/" target="_blank" class="menu-sub">Läufer Trainer</a>
-    <a href="punktezaehler.html" class="menu-sub">Punktezähler</a>
     <a href="minecraft.html">Minecraft</a>
     <a href="minecraft.html#modpacks" class="menu-sub">Modpacks</a>
   </div>
@@ -70,14 +62,20 @@
 
 <main>
   <h1 class="hero-heading">Punktezähler</h1>
-  <p>Zählt Punkte und Sätze nach Volleyball-Regeln: Zwei-Punkte-Vorsprung, Satzende und Tie-Break rechnet er automatisch. Der Stand wird im Browser gespeichert und übersteht auch ein Neuladen.</p>
+  <p>Zählt Punkte und Sätze nach Volleyball-Regeln, wahlweise für Halle oder Beach. Zwei-Punkte-Vorsprung, Satzende und Tie-Break rechnet er automatisch. Der Stand wird im Browser gespeichert und übersteht auch ein Neuladen.</p>
 
   <div class="scoreboard">
     <div class="board-top">
       <div class="board-meta">Satz <span id="set-no">1</span> &middot; bis <span id="set-target">25</span> Punkte</div>
-      <div class="board-mode">
-        <button type="button" id="mode-5" class="active" onclick="setMode(5)">Best of 5</button>
-        <button type="button" id="mode-3" onclick="setMode(3)">Best of 3</button>
+      <div class="board-toggles">
+        <div class="board-mode">
+          <button type="button" id="court-hall" class="active" onclick="setCourt('hall')">Halle</button>
+          <button type="button" id="court-beach" onclick="setCourt('beach')">Beach</button>
+        </div>
+        <div class="board-mode" id="bestof-group">
+          <button type="button" id="mode-5" class="active" onclick="setMode(5)">Best of 5</button>
+          <button type="button" id="mode-3" onclick="setMode(3)">Best of 3</button>
+        </div>
       </div>
     </div>
 
@@ -130,7 +128,7 @@ const STORAGE_KEY = 'bd-punktezaehler';
 let history = [];
 
 function fresh() {
-  return { names: ['Wir', 'Gegner'], points: [0, 0], sets: [0, 0], setNo: 1, bestOf: 5, log: [], done: false };
+  return { names: ['Wir', 'Gegner'], points: [0, 0], sets: [0, 0], setNo: 1, bestOf: 5, court: 'hall', log: [], done: false };
 }
 
 function load() {
@@ -139,6 +137,7 @@ function load() {
     if (!raw) return null;
     const s = JSON.parse(raw);
     if (!s || !Array.isArray(s.points) || !Array.isArray(s.sets)) return null;
+    if (s.court !== 'beach') s.court = 'hall';
     return s;
   } catch (e) {
     return null;
@@ -151,9 +150,14 @@ function save() {
 
 let state = load() || fresh();
 
-/* Entscheidungssatz (5. bzw. 3.) geht nur bis 15 */
+/* Halle: 25 Punkte, Beach: 21. Der Entscheidungssatz geht immer nur bis 15. */
 function target() {
+  if (state.court === 'beach') return state.setNo === 3 ? 15 : 21;
   return state.setNo === state.bestOf ? 15 : 25;
+}
+
+function isBeach() {
+  return state.court === 'beach';
 }
 
 function setsToWin() {
@@ -203,6 +207,19 @@ function renameTeam(i, value) {
   updateHint();
 }
 
+function setCourt(c) {
+  if (c === state.court) return;
+  const started = state.sets[0] || state.sets[1] || state.points[0] || state.points[1];
+  if (started && !confirm('Feld wechseln startet ein neues Spiel. Fortfahren?')) return;
+  const names = state.names.slice();
+  history = [];
+  state = fresh();
+  state.names = names;
+  state.court = c;
+  state.bestOf = c === 'beach' ? 3 : 5;
+  render();
+}
+
 function setMode(n) {
   if (n === state.bestOf) return;
   const started = state.sets[0] || state.sets[1] || state.points[0] || state.points[1];
@@ -241,6 +258,15 @@ function updateHint() {
       return;
     }
   }
+  /* Beach: Seitenwechsel alle 7 Punkte, im Entscheidungssatz alle 5 */
+  if (isBeach()) {
+    const sum = state.points[0] + state.points[1];
+    const every = state.setNo === 3 ? 5 : 7;
+    if (sum > 0 && sum % every === 0) {
+      hint.textContent = 'Seitenwechsel';
+      return;
+    }
+  }
   hint.textContent = '';
 }
 
@@ -252,6 +278,12 @@ function render() {
     const nameEl = document.getElementById('name-' + i);
     if (nameEl.value !== state.names[i]) nameEl.value = state.names[i];
   }
+  const beach = isBeach();
+  document.body.classList.toggle('beach', beach);
+  document.querySelector('.scoreboard').classList.toggle('beach', beach);
+  document.getElementById('court-hall').classList.toggle('active', !beach);
+  document.getElementById('court-beach').classList.toggle('active', beach);
+  document.getElementById('bestof-group').style.display = beach ? 'none' : '';
   document.getElementById('mode-5').classList.toggle('active', state.bestOf === 5);
   document.getElementById('mode-3').classList.toggle('active', state.bestOf === 3);
 

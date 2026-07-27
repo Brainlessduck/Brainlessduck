@@ -1123,3 +1123,38 @@ html[data-theme="light"] .board-actions button:hover {
     justify-content: center;
   }
 }
+
+/* ===== PUNKTEZAEHLER: UMSCHALTER + BEACH-MODUS ===== */
+.board-toggles {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+body.beach {
+  background: radial-gradient(130% 55% at 50% 0%, #2c2517 0%, var(--bg) 58%);
+}
+
+html[data-theme="light"] body.beach {
+  background: radial-gradient(130% 55% at 50% 0%, #fbeac2 0%, var(--bg) 58%);
+}
+
+.scoreboard.beach {
+  background: linear-gradient(165deg, #2b2416 0%, var(--card-bg) 68%);
+  border-color: #4d4126;
+}
+
+html[data-theme="light"] .scoreboard.beach {
+  background: linear-gradient(165deg, #fdf1d3 0%, var(--card-bg) 68%);
+  border-color: #e9d9ac;
+}
+
+.scoreboard.beach .point-btn {
+  background: rgba(245, 197, 24, 0.1);
+  border-color: #4d4126;
+}
+
+html[data-theme="light"] .scoreboard.beach .point-btn {
+  background: rgba(245, 197, 24, 0.16);
+  border-color: #e9d9ac;
+}
