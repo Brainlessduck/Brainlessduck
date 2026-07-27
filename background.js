@@ -12,14 +12,14 @@
     spacing:    30,   // Abstand der Rasterpunkte
     dotSize:    2.2,  // Grundgröße
     wave:       2.2,  // ständige leichte Wellenbewegung
-    cursorDist: 92,   // Wirkradius des Cursors – wie viele Punkte reagieren
-    cursorPush: 42,   // wie weit der Cursor die Punkte wegdrückt
+    cursorDist: 62,   // Wirkradius des Cursors – wie viele Punkte reagieren
+    cursorPush: 34,   // wie weit der Cursor die Punkte wegdrückt
     stiff:      0.13, // Federhärte (höher = strafferer Rückzug)
     damp:       0.87, // Dämpfung (niedriger = weniger Nachschwingen)
     ringBand:   20,   // Dicke des Klick-Rings
     ringSpeed:  6.5,  // Ausbreitungstempo
-    ringDecay:  0.014,// je niedriger, desto weiter läuft der Puls
-    maxRings:   5
+    ringDecay:  0.006,// je niedriger, desto weiter läuft der Puls
+    maxRings:   6
   };
 
   const canvas = document.getElementById('bg-canvas');
