@@ -18,7 +18,7 @@
     damp:       0.80, // Dämpfung (niedriger = weniger Nachschwingen)
     ringBand:   20,   // Dicke des Klick-Rings
     ringSpeed:  6.5,  // Ausbreitungstempo
-    ringDecay:  0.006,// je niedriger, desto weiter läuft der Puls
+    ringDecay:  0.022,// je höher, desto frueher hoert das Ausbreiten auf
     trailFade:  0.90, // Nachleuchten: 0.90 ≈ 8 Kästchen Schweif, kleiner = kürzer
     maxRings:   6
   };
@@ -134,7 +134,7 @@
         const r = rings[k];
         const d = Math.abs(Math.hypot(p.hx - r.x, p.hy - r.y) - r.r);
         if (d < BAND) {
-          const f = (1 - d / BAND) * (0.35 + 0.65 * r.life);
+          const f = (1 - d / BAND) * (0.12 + 0.88 * r.life);
           if (f > head) head = f;
         }
       }
