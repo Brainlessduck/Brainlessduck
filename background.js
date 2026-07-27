@@ -17,9 +17,9 @@
     stiff:      0.38, // Federhärte (höher = schnelleres Ausweichen)
     damp:       0.80, // Dämpfung (niedriger = weniger Nachschwingen)
     ringBand:   20,   // Dicke des Klick-Rings
-    ringSpeed:  6.5,  // Ausbreitungstempo
-    ringDecay:  0.022,// je höher, desto frueher hoert das Ausbreiten auf
-    trailFade:  0.90, // Nachleuchten: 0.90 ≈ 8 Kästchen Schweif, kleiner = kürzer
+    ringSpeed:  9,    // Ausbreitungstempo
+    ringDecay:  0.042,// je höher, desto frueher hoert das Ausbreiten auf
+    trailFade:  0.84, // Nachleuchten, kleiner = kuerzerer Schweif
     maxRings:   6
   };
 
