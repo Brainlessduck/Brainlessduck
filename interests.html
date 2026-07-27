@@ -49,8 +49,12 @@
     </div>
   </div>
   <div class="nav-controls">
-    <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Hell-/Dunkelmodus">🌙</div>
-    <div class="menu-toggle" onclick="event.stopPropagation(); document.getElementById('site-menu').classList.toggle('show')" title="Menü" aria-label="Menü öffnen">☰</div>
+    <button type="button" class="lang-toggle" id="lang-toggle" onclick="toggleLang()" title="Sprache / Language" aria-label="Sprache wechseln / Change language">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/></svg>
+      <span id="lang-label">DE</span>
+    </button>
+    <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Hell-/Dunkelmodus" data-i18n-title="nav.theme">🌙</div>
+    <div class="menu-toggle" onclick="event.stopPropagation(); document.getElementById('site-menu').classList.toggle('show')" title="Menü" aria-label="Menü öffnen" data-i18n-title="nav.menu" data-i18n-aria="nav.menu">☰</div>
   </div>
   <div class="menu-dropdown" id="site-menu">
     <a href="index.html">Home</a>
@@ -64,7 +68,7 @@
   <h1 class="hero-heading">Volleyball</h1>
 
   <div class="social-card">
-    <h2>Meine Projekte</h2>
+    <h2 data-i18n="vb.projects">Meine Projekte</h2>
     <div class="social-links">
       <a href="https://brainlessduck.github.io/laeufer-trainer/" target="_blank"><span class="tag">Tool</span> Läufer Trainer</a>
       <a href="punktezaehler.html"><span class="tag">Tool</span> Punktezähler</a>
@@ -72,8 +76,8 @@
   </div>
 
   <div class="social-card">
-    <h2>Die sechs Zonen</h2>
-    <svg class="zone-court" viewBox="0 0 300 312" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Volleyballfeld mit den sechs Zonen: vorne von links nach rechts 4, 3, 2 und hinten von links nach rechts 5, 6, 1">
+    <h2 data-i18n="vb.zones">Die sechs Zonen</h2>
+    <svg class="zone-court" viewBox="0 0 300 312" xmlns="http://www.w3.org/2000/svg" role="img" data-i18n-aria="vb.court.alt" aria-label="Volleyballfeld mit den sechs Zonen: vorne von links nach rechts 4, 3, 2 und hinten von links nach rechts 5, 6, 1">
       <text x="150" y="12" text-anchor="middle" font-family="Poppins, sans-serif" font-size="11" font-weight="600" fill="var(--text-dim)">NETZ</text>
       <rect x="10" y="18" width="280" height="5" rx="2.5" fill="var(--text)"/>
       <rect x="10" y="30" width="280" height="268" rx="5" fill="#f5c518"/>
@@ -87,22 +91,22 @@
         <circle cx="234" cy="208" r="33" fill="#1a1a1d"/><text x="234" y="218">1</text>
       </g>
     </svg>
-    <p>Die Nummerierung wirkt erst mal wirr, weil sie nicht von links nach rechts läuft, sondern der Aufschlagreihenfolge folgt. Zone 1 schlägt auf, danach wandert das Aufschlagrecht im Uhrzeigersinn weiter: <strong>1 → 6 → 5 → 4 → 3 → 2</strong>.</p>
-    <p>Der entscheidende Punkt: Diese Zonen gelten nur für einen einzigen Moment – bis der Aufschläger den Ball trifft. Bis dahin muss jeder Vorderspieler mit einem Fuß näher am Netz stehen als sein Hintermann, und innerhalb einer Reihe müssen die Nachbarn ihre Reihenfolge halten. Stimmt das nicht, ist es ein Rotationsfehler und der Punkt gehört dem Gegner.</p>
-    <p>Danach darf sich jeder frei bewegen. Genau davon lebt das 5:1-System: Der Zuspieler startet regelkonform hinten und sprintet in derselben Sekunde nach vorne ans Netz. Wie dieser Laufweg in jeder Rotation aussieht, kannst du im Läufer Trainer durchgehen.</p>
-    <p>Die weiße Linie ist die 3-Meter-Linie. Wer aus dem Hinterfeld über Netzkante angreifen will, muss dahinter abspringen – landen darf er anschließend im Vorderfeld.</p>
+    <p data-i18n-html="vb.zones.p1">Die Nummerierung wirkt erst mal wirr, weil sie nicht von links nach rechts läuft, sondern der Aufschlagreihenfolge folgt. Zone 1 schlägt auf, danach wandert das Aufschlagrecht im Uhrzeigersinn weiter: <strong>1 → 6 → 5 → 4 → 3 → 2</strong>.</p>
+    <p data-i18n-html="vb.zones.p2">Der entscheidende Punkt: Diese Zonen gelten nur für einen einzigen Moment – bis der Aufschläger den Ball trifft. Bis dahin muss jeder Vorderspieler mit einem Fuß näher am Netz stehen als sein Hintermann, und innerhalb einer Reihe müssen die Nachbarn ihre Reihenfolge halten. Stimmt das nicht, ist es ein Rotationsfehler und der Punkt gehört dem Gegner.</p>
+    <p data-i18n-html="vb.zones.p3">Danach darf sich jeder frei bewegen. Genau davon lebt das 5:1-System: Der Zuspieler startet regelkonform hinten und sprintet in derselben Sekunde nach vorne ans Netz. Wie dieser Laufweg in jeder Rotation aussieht, kannst du im Läufer Trainer durchgehen.</p>
+    <p data-i18n-html="vb.zones.p4">Die weiße Linie ist die 3-Meter-Linie. Wer aus dem Hinterfeld über Netzkante angreifen will, muss dahinter abspringen – landen darf er anschließend im Vorderfeld.</p>
   </div>
 
   <div class="social-card">
-    <h2>Die Positionen</h2>
+    <h2 data-i18n="vb.positions">Die Positionen</h2>
     <ul class="info-list">
-      <li><span class="abbr">Z</span><span><strong>Zuspieler</strong> – spielt den zweiten Ball und entscheidet, wer angreift. Im 5:1-System gibt es nur einen, der aus dem Hinterfeld nach vorne auf Position 2/3 läuft.</span></li>
-      <li><span class="abbr">AA</span><span><strong>Außenangreifer</strong> – greift über Position 4 an und ist gleichzeitig in der Annahme. Davon gibt es zwei im Team.</span></li>
-      <li><span class="abbr">MB</span><span><strong>Mittelblocker</strong> – blockt in der Mitte und schlägt Schnellangriffe über Position 3. Ebenfalls zwei pro Team.</span></li>
-      <li><span class="abbr">D</span><span><strong>Diagonalangreifer</strong> – steht immer diagonal zum Zuspieler und greift von Position 2 an, meist ohne Annahmeaufgaben.</span></li>
-      <li><span class="abbr">L</span><span><strong>Libero</strong> – Abwehrspezialist im Hinterfeld mit andersfarbigem Trikot. Er darf beliebig oft für Hinterfeldspieler ein- und auswechseln.</span></li>
+      <li><span class="abbr">Z</span><span data-i18n-html="vb.pos.z"><strong>Zuspieler</strong> – spielt den zweiten Ball und entscheidet, wer angreift. Im 5:1-System gibt es nur einen, der aus dem Hinterfeld nach vorne auf Position 2/3 läuft.</span></li>
+      <li><span class="abbr">AA</span><span data-i18n-html="vb.pos.aa"><strong>Außenangreifer</strong> – greift über Position 4 an und ist gleichzeitig in der Annahme. Davon gibt es zwei im Team.</span></li>
+      <li><span class="abbr">MB</span><span data-i18n-html="vb.pos.mb"><strong>Mittelblocker</strong> – blockt in der Mitte und schlägt Schnellangriffe über Position 3. Ebenfalls zwei pro Team.</span></li>
+      <li><span class="abbr">D</span><span data-i18n-html="vb.pos.d"><strong>Diagonalangreifer</strong> – steht immer diagonal zum Zuspieler und greift von Position 2 an, meist ohne Annahmeaufgaben.</span></li>
+      <li><span class="abbr">L</span><span data-i18n-html="vb.pos.l"><strong>Libero</strong> – Abwehrspezialist im Hinterfeld mit andersfarbigem Trikot. Er darf beliebig oft für Hinterfeldspieler ein- und auswechseln.</span></li>
     </ul>
-    <p>Wie der Zuspieler in jeder Rotation nach vorne läuft, kannst du im Läufer Trainer Schritt für Schritt durchgehen.</p>
+    <p data-i18n="vb.pos.note">Wie der Zuspieler in jeder Rotation nach vorne läuft, kannst du im Läufer Trainer Schritt für Schritt durchgehen.</p>
   </div>
 </main>
 
@@ -127,6 +131,7 @@
   </div>
 </footer>
 
+<script src="i18n.js?v=1"></script>
 <script src="main.js?v=1"></script>
 <script data-goatcounter="https://brainlessduck.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
