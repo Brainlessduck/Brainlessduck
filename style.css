@@ -840,6 +840,12 @@ body > footer {
   z-index: 1;
 }
 
+/* Nav-Leiste und ihre Dropdowns immer ueber dem Seiteninhalt */
+.nav-links,
+.nav-controls {
+  z-index: 2;
+}
+
 /* Nav ueber dem Inhalt, sonst verdeckt main die Dropdowns */
 body > nav {
   position: relative;
