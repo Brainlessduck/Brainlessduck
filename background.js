@@ -14,8 +14,8 @@
     wave:       2.2,  // ständige leichte Wellenbewegung
     cursorDist: 62,   // Wirkradius des Cursors – wie viele Punkte reagieren
     cursorPush: 34,   // wie weit der Cursor die Punkte wegdrückt
-    stiff:      0.13, // Federhärte (höher = strafferer Rückzug)
-    damp:       0.87, // Dämpfung (niedriger = weniger Nachschwingen)
+    stiff:      0.38, // Federhärte (höher = schnelleres Ausweichen)
+    damp:       0.80, // Dämpfung (niedriger = weniger Nachschwingen)
     ringBand:   20,   // Dicke des Klick-Rings
     ringSpeed:  6.5,  // Ausbreitungstempo
     ringDecay:  0.006,// je niedriger, desto weiter läuft der Puls
