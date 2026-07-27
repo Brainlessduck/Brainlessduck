@@ -19,6 +19,7 @@
     ringBand:   20,   // Dicke des Klick-Rings
     ringSpeed:  6.5,  // Ausbreitungstempo
     ringDecay:  0.006,// je niedriger, desto weiter läuft der Puls
+    trailFade:  0.90, // Nachleuchten: 0.90 ≈ 8 Kästchen Schweif, kleiner = kürzer
     maxRings:   6
   };
 
@@ -66,7 +67,7 @@
     const S = CFG.spacing;
     for (let x = S / 2; x < W + S; x += S) {
       for (let y = S / 2; y < H + S; y += S) {
-        pts.push({ hx: x, hy: y, ox: 0, oy: 0, vx: 0, vy: 0 });
+        pts.push({ hx: x, hy: y, ox: 0, oy: 0, vx: 0, vy: 0, fl: 0 });
       }
     }
   }
@@ -126,17 +127,20 @@
       p.ox += p.vx;
       p.oy += p.vy;
 
-      // Klick-Ring
-      let flash = 0;
+      // Klick-Ring: der Ring selbst ist nur der helle Kopf, danach klingt
+      // jeder getroffene Punkt langsam aus -> Schweif von ca. 8 Kästchen
+      let head = 0;
       for (let k = 0; k < nRings; k++) {
         const r = rings[k];
         const d = Math.abs(Math.hypot(p.hx - r.x, p.hy - r.y) - r.r);
         if (d < BAND) {
-          // bleibt lange kräftig und verblasst erst zum Schluss
-          const f = (1 - d / BAND) * (0.4 + 0.6 * r.life);
-          if (f > flash) flash = f;
+          const f = (1 - d / BAND) * (0.35 + 0.65 * r.life);
+          if (f > head) head = f;
         }
       }
+      p.fl *= CFG.trailFade;
+      if (head > p.fl) p.fl = head;
+      const flash = p.fl;
 
       const x = p.hx + p.ox, y = p.hy + p.oy;
 
