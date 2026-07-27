@@ -12,13 +12,13 @@
     spacing:    30,   // Abstand der Rasterpunkte
     dotSize:    2.2,  // Grundgröße
     wave:       2.2,  // ständige leichte Wellenbewegung
-    cursorDist: 160,  // Wirkradius des Cursors
-    cursorPush: 52,   // wie weit der Cursor die Punkte wegdrückt
+    cursorDist: 92,   // Wirkradius des Cursors – wie viele Punkte reagieren
+    cursorPush: 42,   // wie weit der Cursor die Punkte wegdrückt
     stiff:      0.13, // Federhärte (höher = strafferer Rückzug)
     damp:       0.87, // Dämpfung (niedriger = weniger Nachschwingen)
-    ringBand:   20,   // Dicke des Klick-Rings  << Angriffsfläche
-    ringSpeed:  7,    // Ausbreitungstempo
-    ringDecay:  0.035,// je höher, desto kürzer die Reichweite
+    ringBand:   20,   // Dicke des Klick-Rings
+    ringSpeed:  6.5,  // Ausbreitungstempo
+    ringDecay:  0.014,// je niedriger, desto weiter läuft der Puls
     maxRings:   5
   };
 
@@ -132,7 +132,8 @@
         const r = rings[k];
         const d = Math.abs(Math.hypot(p.hx - r.x, p.hy - r.y) - r.r);
         if (d < BAND) {
-          const f = (1 - d / BAND) * r.life;
+          // bleibt lange kräftig und verblasst erst zum Schluss
+          const f = (1 - d / BAND) * (0.4 + 0.6 * r.life);
           if (f > flash) flash = f;
         }
       }
